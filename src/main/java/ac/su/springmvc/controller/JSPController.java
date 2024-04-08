@@ -7,8 +7,8 @@ import org.springframework.ui.Model;
 @Controller
 public class JSPController {
 
-    @RequestMapping("sample-jsp-page")
-    public String sampleJSP(Model model) {  // 페이지 응답 시 모델 자동 주입
+    @RequestMapping("fruit-list")
+    public String fruitList(Model model) {  // 페이지 응답 시 모델 자동 주입
         // 과일 배열 생성
         String[] fruits = {"Apple", "Banana", "Orange", "Grape", "Pineapple"};
 
@@ -16,6 +16,6 @@ public class JSPController {
         model.addAttribute("fruits", fruits);
 
         // 과일 목록 JSP 페이지 이름 반환
-        return "sample-jsp-page";
+        return "fruit-list";
     }
 }
