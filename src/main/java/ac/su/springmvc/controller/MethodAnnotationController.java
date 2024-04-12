@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/method-annotation")
-public class MethodAnnotationSampleController {
+public class MethodAnnotationController {
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     @ResponseBody
     public String get() {
