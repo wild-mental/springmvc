@@ -23,6 +23,11 @@ public class UserService {
         return UserDTO.fromEntity(foundUser);
     }
 
+    public UserBmiDTO findUserBmiById(Long id) {
+        User foundUser = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
+        return UserBmiDTO.fromEntity(foundUser);
+    }
+
     public UserDTO save(UserDTO user) {
         User savedUser = userRepository.save(user.toEntity());
         return UserDTO.fromEntity(savedUser);

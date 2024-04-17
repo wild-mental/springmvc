@@ -38,6 +38,12 @@ public class UserRestController {
         return ResponseEntity.ok(user);
     }
 
+    @GetMapping("/{id}/bmi")
+    public ResponseEntity<UserBmiDTO> getUserWithBmi(@PathVariable Long id) {
+        UserBmiDTO user = userService.findUserBmiById(id);
+        return ResponseEntity.ok(user);
+    }
+
     @PostMapping
     public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO user) {
         UserDTO savedUser = userService.save(user);
