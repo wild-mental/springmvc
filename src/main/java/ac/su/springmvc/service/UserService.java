@@ -1,6 +1,7 @@
 package ac.su.springmvc.service;
 
 import ac.su.springmvc.domain.User;
+import ac.su.springmvc.domain.UserBmiDTO;
 import ac.su.springmvc.domain.UserDTO;
 import ac.su.springmvc.exception.UserNotFoundException;
 import ac.su.springmvc.repository.UserRepository;
@@ -59,6 +60,17 @@ public class UserService {
     public static List<UserDTO> convertToUserDTOList(List<User> userList) {
         return userList.stream()
             .map(UserDTO::fromEntity)
+            .collect(Collectors.toList());
+    }
+
+    public List<UserBmiDTO> findAllUserWithBmi() {
+        List<User> allUsers = userRepository.findAll();
+        return convertToUserBmiDTOList(allUsers);
+    }
+
+    public static List<UserBmiDTO> convertToUserBmiDTOList(List<User> userList) {
+        return userList.stream()
+            .map(UserBmiDTO::fromEntity)
             .collect(Collectors.toList());
     }
 

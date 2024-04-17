@@ -1,5 +1,6 @@
 package ac.su.springmvc.controller;
 
+import ac.su.springmvc.domain.UserBmiDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +23,12 @@ public class UserRestController {
     @GetMapping
     public ResponseEntity<List<UserDTO>> getAllUsers() {
         List<UserDTO> users = userService.findAll();
+        return ResponseEntity.ok(users);
+    }
+
+    @GetMapping("/bmi")
+    public ResponseEntity<List<UserBmiDTO>> getAllUsersWithBmi() {
+        List<UserBmiDTO> users = userService.findAllUserWithBmi();
         return ResponseEntity.ok(users);
     }
 
